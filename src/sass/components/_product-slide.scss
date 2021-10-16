@@ -1,0 +1,17 @@
+.product-slide {
+  .slick-next::before,
+  .slick-prev::before {
+    color: $main-color;
+    // background-color: ;
+    font-size: 3rem;
+  }
+  @include tablet {
+    .slick-next::before,
+    .slick-prev::before {
+      display: none;
+    }
+  }
+  .slick-dots li button::before {
+    color: $main-color;
+  }
+}

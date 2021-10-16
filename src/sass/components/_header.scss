@@ -1,0 +1,163 @@
+.header {
+  background-color: $main-bg;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
+
+  height: $header-height;
+
+  transition: height 0.3s ease;
+
+  @include tablet {
+    height: $header-tablet-height;
+    box-shadow: $box-shadow;
+  }
+
+  @include mobile {
+    height: $header-mobile-height;
+  }
+
+  .container {
+    height: 100%;
+  }
+
+  &.shrink {
+    height: $header-shrink-height;
+    box-shadow: $box-shadow;
+    z-index: 100;
+    @include mobile {
+      height: $header-mobile-height;
+    }
+  }
+
+  &-logo {
+    @include flex(center, center);
+
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    pointer-events: none;
+
+    img {
+      height: 28px;
+    }
+  }
+  &-menu {
+    @include flex(center, space-between);
+
+    height: 100%;
+
+    font-size: 1.5rem;
+
+    &-item {
+      transition: all 0.3s ease-in;
+      position: relative;
+      &::after {
+        content: '';
+        height: 2px;
+        background-color: $main-color;
+
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+
+        transition: width 0.5s ease;
+        width: 0;
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+    &-item:hover::after,
+    &-item.active::after {
+      width: 100%;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    &-item ~ &-item {
+      margin-left: 40px;
+      @include tablet {
+        margin-left: 20px;
+      }
+      @include mobile {
+        margin-left: 10px;
+      }
+    }
+
+    &-item.active {
+      color: $main-color;
+    }
+
+    &-item:hover {
+      color: $main-color;
+    }
+
+    &-left,
+    &-right {
+      @include flex(center, center);
+      height: 100%;
+    }
+
+    &-right {
+      font-size: 2.25rem;
+
+      &-item {
+        @include flex(center, center);
+      }
+
+      @include mobile {
+        font-size: 1.5rem;
+      }
+    }
+
+    &-mobile-toggle {
+      display: none;
+      @include tablet {
+        display: block;
+        font-size: 2.5rem;
+      }
+    }
+
+    &-left {
+      &-close {
+        display: none;
+      }
+      @include tablet {
+        flex-direction: column;
+        background-color: $main-bg;
+
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 30px;
+
+        transform: translateX(-100%);
+        transition: transform 0.5s ease;
+
+        &.active {
+          transform: translateX(0);
+        }
+        &-item {
+          margin-left: unset;
+          margin-top: 20px;
+        }
+
+        &-close {
+          display: block;
+          position: absolute;
+          left: 20px;
+          font-size: 3rem;
+        }
+      }
+    }
+  }
+}
