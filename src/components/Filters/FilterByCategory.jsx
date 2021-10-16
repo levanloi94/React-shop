@@ -28,7 +28,6 @@ function FilterByCategory({ onChange }) {
     (async () => {
       try {
         const res = await categoryApi.getAll();
-        console.log(res);
         setCategoryList(res);
       } catch (error) {
         console.log('Failed to fetch caatgory list', error);
