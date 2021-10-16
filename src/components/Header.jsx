@@ -85,9 +85,9 @@ function Header(props) {
           </div>
 
           <div className="header-menu-right">
-            <div className="header-menu-right-item header-menu-item">
+            {/* <div className="header-menu-right-item header-menu-item">
               <i className="bx bx-search"></i>
-            </div>
+            </div> */}
             <div className="header-menu-right-item header-menu-item">
               <Link to="/cart">
                 <Badge badgeContent={cartItemCount} color="primary">
