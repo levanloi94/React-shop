@@ -66,7 +66,6 @@ function ProductView(props) {
         size: size,
         quantity: quantity,
       });
-      console.log(action);
       dispatch(action);
     }
   };
