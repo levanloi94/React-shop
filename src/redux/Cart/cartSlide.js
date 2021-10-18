@@ -1,6 +1,6 @@
 const {createSlice} = require('@reduxjs/toolkit');
 
-const value = localStorage.getItem('cartItems') !== null ? JSON.parse(localStorage.getItem('cartItems')) : []
+// const value = localStorage.getItem('cartItems') !== null ? JSON.parse(localStorage.getItem('cartItems')) : []
 
 const cartSlice = createSlice({
   name: 'cart',
@@ -13,7 +13,7 @@ const cartSlice = createSlice({
     //   // size:s
     //   // quantity:1
     // ],
-    cartItems: value
+    cartItems: localStorage.getItem('cartItems') !== null ? JSON.parse(localStorage.getItem('cartItems')) : []
   },
   reducers:{
     showMiniCart(state){

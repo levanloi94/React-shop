@@ -2,6 +2,7 @@ import { Pagination } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import React, { useEffect, useRef, useState } from 'react';
 import productApi from '../api/productApi';
+import Button from '../components/Button';
 import FilterViewer from '../components/FilterViewer';
 import Grid from '../components/Grid';
 import Helmet from '../components/Helmet';
@@ -9,7 +10,6 @@ import ProductCard from '../components/ProductCard';
 import ProductFilters from '../components/ProductFilters';
 import ProductSkeletonList from '../components/ProductSkeletonList';
 import ProductSort from '../components/ProductSort';
-import Button from '../components/Button';
 
 Catalog.propTypes = {};
 

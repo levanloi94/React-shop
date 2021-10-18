@@ -1,5 +1,5 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import FilterByCategory from './Filters/FilterByCategory';
 import FilterByColor from './Filters/FilterByColor';
 import FilterByPrice from './Filters/FilterByPrice';
