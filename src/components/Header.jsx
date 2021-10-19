@@ -1,9 +1,11 @@
 import { Badge, IconButton } from '@mui/material';
 import React, { useEffect, useRef, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import logo from '../assets/images/Logo-2.png';
 import { cartItemsCountSelector } from '../redux/Cart/selectors';
+import SearchModal from './SearchModal';
+import { showModal } from '../redux/Cart/searchSlice';
 
 Header.propTypes = {};
 
@@ -35,6 +37,8 @@ function Header(props) {
 
   const cartItemCount = useSelector(cartItemsCountSelector);
 
+  const disPatch = useDispatch();
+
   useEffect(() => {
     window.addEventListener('scroll', () => {
       if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
@@ -47,6 +51,11 @@ function Header(props) {
       window.addEventListener('scroll');
     };
   }, []);
+
+  const handleShowModal = () => {
+    const action = showModal();
+    disPatch(action);
+  };
 
   const menuLeft = useRef(null);
 
@@ -85,9 +94,9 @@ function Header(props) {
           </div>
 
           <div className="header-menu-right">
-            {/* <div className="header-menu-right-item header-menu-item">
+            <div className="header-menu-right-item header-menu-item" onClick={handleShowModal}>
               <i className="bx bx-search"></i>
-            </div> */}
+            </div>
             <div className="header-menu-right-item header-menu-item">
               <Link to="/cart">
                 <Badge badgeContent={cartItemCount} color="primary">

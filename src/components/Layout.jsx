@@ -1,11 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { BrowserRouter, Route } from 'react-router-dom';
-import Header from './Header';
 import Routes from '../routes/Routes';
-import Footer from './Footer';
 import BackToTop from './BackToTop';
+import Footer from './Footer';
+import Header from './Header';
 import ProductViewModal from './ProductViewModal';
+import SearchModal from './SearchModal';
 
 Layout.propTypes = {};
 
@@ -24,6 +24,7 @@ function Layout(props) {
             <Footer />
             <BackToTop />
             <ProductViewModal />
+            <SearchModal />
           </div>
         )}
       />

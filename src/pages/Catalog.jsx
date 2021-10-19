@@ -1,6 +1,7 @@
 import { Pagination } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import React, { useEffect, useRef, useState } from 'react';
+import { useSelector } from 'react-redux';
 import productApi from '../api/productApi';
 import Button from '../components/Button';
 import FilterViewer from '../components/FilterViewer';
@@ -10,6 +11,8 @@ import ProductCard from '../components/ProductCard';
 import ProductFilters from '../components/ProductFilters';
 import ProductSkeletonList from '../components/ProductSkeletonList';
 import ProductSort from '../components/ProductSort';
+import SearchModal from '../components/SearchModal';
+import SearchView from '../components/SearchView';
 
 Catalog.propTypes = {};
 
@@ -27,12 +30,16 @@ function Catalog(props) {
     _limit: 12,
     _sort: 'salePrice',
     _order: 'asc',
+    // slug_like: 'shirt',
   });
   const [pagination, setPagination] = useState({
     _page: 1,
     _limit: 10,
     _totalRows: 10,
   });
+
+  const [searchFilter, setSearchFilter] = useState({});
+
   const classes = useStyle();
   useEffect(() => {
     (async () => {
@@ -77,6 +84,15 @@ function Catalog(props) {
 
   const showHideFilter = () => filterRef.current.classList.toggle('active');
 
+  const searchFilterSlice = useSelector((state) => state.search.searchFilter);
+
+  useEffect(() => {
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      ...searchFilterSlice,
+    }));
+  }, [searchFilterSlice]);
+
   return (
     <Helmet title="Catalog page">
       <div className="catalog">
@@ -92,7 +108,11 @@ function Catalog(props) {
               Filters
             </Button>
           </div>
+
+          <SearchView filters={filters} />
+
           <ProductSort currentSort={filters._order} onChange={handleSortChange} />
+
           <FilterViewer filters={filters} onChange={setNewFilters} />
           {loading ? (
             <ProductSkeletonList length={12} />
