@@ -25,15 +25,19 @@ function SearchModal({ onSubmit = {}, history }) {
   const handleSubmitValue = () => {
     if (!onSubmit) return;
 
-    const searchFilter = {
-      slug_like: value,
-    };
+    if (value === '') {
+      return;
+    } else {
+      const searchFilter = {
+        slug_like: value,
+      };
 
-    const action = addFilter(searchFilter);
-    disPatch(action);
+      const action = addFilter(searchFilter);
+      disPatch(action);
 
-    setValue('');
-    handleCloseModal();
+      setValue('');
+      handleCloseModal();
+    }
   };
 
   return (

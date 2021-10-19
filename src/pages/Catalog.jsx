@@ -109,7 +109,7 @@ function Catalog(props) {
             </Button>
           </div>
 
-          <SearchView filters={filters} />
+          {filters.slug_like ? <SearchView filters={filters} /> : ''}
 
           <ProductSort currentSort={filters._order} onChange={handleSortChange} />
 
