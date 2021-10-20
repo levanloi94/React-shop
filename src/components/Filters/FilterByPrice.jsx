@@ -40,7 +40,7 @@ function FilterByPrice({ onChange }) {
         ok
       </Button>
 
-      <div style={{ width: '80%' }}>
+      <div style={{ width: '70%' }}>
         <Slider
           getAriaLabel={() => 'Temperature range'}
           value={value}

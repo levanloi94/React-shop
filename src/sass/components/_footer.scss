@@ -3,6 +3,14 @@
   box-shadow: $box-shadow;
   font-size: 1.1rem;
 
+  @include tablet {
+    padding: 40px 0;
+  }
+
+  @include mobile {
+    padding: 30px 0;
+  }
+
   &-logo {
     height: 38px;
   }

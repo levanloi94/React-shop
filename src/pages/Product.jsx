@@ -32,7 +32,7 @@ function Product(props) {
         </SectionBody>
       </Section>
       <Section>
-        <SectionTittle>Realated Products</SectionTittle>
+        <SectionTittle>Related Products</SectionTittle>
         <SectionBody>
           <ProductList product={product} />
         </SectionBody>
