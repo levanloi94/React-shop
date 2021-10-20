@@ -15,6 +15,7 @@
   }
   @include mobile {
     margin-top: calc(#{$header-mobile-height} * -1);
+    height: 500px;
   }
 
   &-item {
@@ -33,7 +34,7 @@
 
     @include mobile {
       padding-top: unset;
-      padding-bottom: 40px;
+      padding-bottom: 20px;
     }
 
     &.active {
@@ -118,6 +119,10 @@
         @include flex(center, center);
         flex-grow: unset;
         z-index: 98;
+      }
+      @include mobile {
+        height: 50%;
+        padding-top: 30px;
       }
 
       img {
