@@ -39,6 +39,7 @@ function SearchModal({ onSubmit = {}, history }) {
       handleCloseModal();
     }
   };
+  
 
   return (
     <div className={`search-modal ${openModal ? 'active' : ''}`}>

@@ -22,6 +22,8 @@ const CartItem = (props) => {
     if (opt === '+') {
       const action = updateQuanTity({
         id: item.id,
+        color: item.color,
+        size: item.size,
         quantity: quantity + 1,
       });
       dispatch(action);
@@ -29,6 +31,8 @@ const CartItem = (props) => {
     if (opt === '-') {
       const action = updateQuanTity({
         id: item.id,
+        color: item.color,
+        size: item.size,
         quantity: quantity - 1 < 1 ? 1 : quantity - 1,
       });
       dispatch(action);
@@ -36,8 +40,11 @@ const CartItem = (props) => {
   };
 
   const removeCartItem = () => {
-    console.log('removeCartItem');
-    const action = removeFromCart(item.id);
+    const action = removeFromCart({
+      id: item.id,
+      color: item.color,
+      size: item.size,
+    });
     dispatch(action);
   };
 

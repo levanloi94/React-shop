@@ -48,7 +48,7 @@ function Header(props) {
       }
     });
     return () => {
-      window.addEventListener('scroll');
+      window.removeEventListener('scroll');
     };
   }, []);
 

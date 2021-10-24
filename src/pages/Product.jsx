@@ -16,9 +16,9 @@ function Product(props) {
 
   const { product, loading } = useProductDetail(id);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [product]);
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // }, [product]);
 
   if (loading) {
     return '';

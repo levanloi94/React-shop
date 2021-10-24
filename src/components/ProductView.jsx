@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import Button from './Button';
-import formatPrice from '../utils/numberWithCommas';
-import { withRouter } from 'react-router';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { withRouter } from 'react-router';
+import { v4 as uuidv4 } from 'uuid';
 import { addToCart } from '../redux/Cart/cartSlide';
+import formatPrice from '../utils/numberWithCommas';
+import Button from './Button';
+
 ProductView.propTypes = {
   product: PropTypes.object,
 };

@@ -1,20 +1,34 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 BackToTop.propTypes = {};
 
 function BackToTop(props) {
+  const [show, setShow] = useState(false);
   const backToTopRef = useRef(null);
+
+  // useEffect(() => {
+  //   window.addEventListener('scroll', () => {
+  //     if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+  //       backToTopRef.current.classList.add('active');
+  //     } else {
+  //       backToTopRef.current.classList.remove('active');
+  //     }
+  //   });
+  //   return () => {
+  //     window.removeEventListener('scroll');
+  //   };
+  // }, []);
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
       if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-        backToTopRef.current.classList.add('active');
+        setShow(true);
       } else {
-        backToTopRef.current.classList.remove('active');
+        setShow(false);
       }
     });
     return () => {
-      window.addEventListener('scroll');
+      window.removeEventListener('scroll');
     };
   }, []);
 
@@ -22,7 +36,10 @@ function BackToTop(props) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
   return (
-    <div className="back-to-top" ref={backToTopRef} onClick={handleClickToTop}>
+    // <div className="back-to-top" ref={backToTopRef} onClick={handleClickToTop}>
+    //   <i className="bx bx-chevron-up"></i>
+    // </div>
+    <div className={`back-to-top ${show ? 'active' : ''}`} onClick={handleClickToTop}>
       <i className="bx bx-chevron-up"></i>
     </div>
   );
