@@ -15,7 +15,7 @@ const footerAboutLinks = [
     path: '/about',
   },
   {
-    display: 'Hire',
+    display: 'Careers',
     path: '/about',
   },
   {
