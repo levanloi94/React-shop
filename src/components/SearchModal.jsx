@@ -22,8 +22,10 @@ function SearchModal({ onSubmit = {}, history }) {
     setValue(value);
   };
 
-  const handleSubmitValue = () => {
+  const handleSubmitValue = (e) => {
     if (!onSubmit) return;
+
+    e.preventDefault();
 
     if (value === '') {
       return;
@@ -39,20 +41,19 @@ function SearchModal({ onSubmit = {}, history }) {
       handleCloseModal();
     }
   };
-  
 
   return (
     <div className={`search-modal ${openModal ? 'active' : ''}`}>
       <div className={`search-modal-content ${openModal ? 'active' : ''}`}>
         <i className="bx bx-x search-modal-close" onClick={handleCloseModal}></i>
-        <div className="search-modal-form">
+        <form className="search-modal-form" type="submit" onSubmit={handleSubmitValue}>
           <input type="text" value={value} onChange={(e) => handleValueChange(e.target.value)} />
           <Link to="/catalog">
             <div className="search-modal-btn" onClick={handleSubmitValue}>
               <i className="bx bx-search"></i>
             </div>
           </Link>
-        </div>
+        </form>
       </div>
     </div>
   );
