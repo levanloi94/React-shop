@@ -1,5 +1,4 @@
 .product-slide {
-  // overflow: hidden;
   .slick-next::before,
   .slick-prev::before {
     color: $main-color;
@@ -14,5 +13,12 @@
   }
   .slick-dots li button::before {
     color: $main-color;
+  }
+  @include mobile {
+    overflow-x: hidden;
+    padding-bottom: 40px;
+    .slick-dots {
+      bottom: 0;
+    }
   }
 }
