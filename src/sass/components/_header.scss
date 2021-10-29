@@ -55,6 +55,7 @@
     &-item {
       transition: all 0.3s ease-in;
       position: relative;
+      cursor: pointer;
       &::after {
         content: '';
         height: 2px;
