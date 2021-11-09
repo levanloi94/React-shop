@@ -3,15 +3,18 @@ import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { addFilter, hideModal } from '../redux/Cart/searchSlice';
 import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 SearchModal.propTypes = {};
 
-function SearchModal({ onSubmit = {}, history }) {
+function SearchModal({ onSubmit = {} }) {
   const openModal = useSelector((state) => state.search.showModal);
 
   const [value, setValue] = useState('');
 
   const disPatch = useDispatch();
+
+  const history = useHistory();
 
   const handleCloseModal = () => {
     const action = hideModal();
@@ -36,6 +39,7 @@ function SearchModal({ onSubmit = {}, history }) {
 
       const action = addFilter(searchFilter);
       disPatch(action);
+      history.push('/catalog');
 
       setValue('');
       handleCloseModal();
@@ -49,7 +53,7 @@ function SearchModal({ onSubmit = {}, history }) {
         <form className="search-modal-form" type="submit" onSubmit={handleSubmitValue}>
           <input type="text" value={value} onChange={(e) => handleValueChange(e.target.value)} />
           <Link to="/catalog">
-            <div className="search-modal-btn" onClick={handleSubmitValue}>
+            <div type="submit" className="search-modal-btn" onClick={handleSubmitValue}>
               <i className="bx bx-search"></i>
             </div>
           </Link>

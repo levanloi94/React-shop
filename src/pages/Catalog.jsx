@@ -11,7 +11,6 @@ import ProductCard from '../components/ProductCard';
 import ProductFilters from '../components/ProductFilters';
 import ProductSkeletonList from '../components/ProductSkeletonList';
 import ProductSort from '../components/ProductSort';
-import SearchModal from '../components/SearchModal';
 import SearchView from '../components/SearchView';
 
 Catalog.propTypes = {};
