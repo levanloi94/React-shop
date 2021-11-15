@@ -9,6 +9,8 @@
   &-filter {
     width: 20%;
     padding-right: 15px;
+    position: sticky;
+    top: 70px;
     @include tablet {
       width: 250px;
       height: 100vh;
